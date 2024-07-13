@@ -1,0 +1,13 @@
+%%[
+SET @fName = [FirstName]
+SET @accountNum = [AccountNumber]
+SET @negativeBal = [NegativeBalance]
+SET @trimFname = TRIM(@fName)
+SET @properfName = PROPERCASE(@trimFname)
+SET @fourDigit = CONCAT("XXXXXXXX",substring(@accountNum,9,4))
+SET @negBalance = CONCAT("-",FORMAT(@negativeBal,"c"))
+]%%
+
+Hello %%=v(@properfName)=%%, <br>Your SafeBank account ending in %%=v(@fourDigit)=%% is currently overdrawn by %%=v(@negBalance)=%%. Please deposit funds as soon as possible to avoid any fees. 
+<br>
+Reply back STOP to opt out.
